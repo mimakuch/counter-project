@@ -22,12 +22,24 @@ Counter.prototype.render = function () {
     const button = document.createElement('button')
 
     h1.innerHTML = this.number
+    button.innerText = '+'
+
+    const self = this
+
+    button.addEventListener(
+        'click',
+        function () {
+            self.inc()
+        }
+    )
 
     this.container.appendChild(h1)
+    this.container.appendChild(button)
 }
 
 Counter.prototype.inc = function () {
     this.number = this.number + 1
+    this.render()
 }
 
 Counter.prototype.status = function () {
