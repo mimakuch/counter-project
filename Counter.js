@@ -24,13 +24,9 @@ Counter.prototype.render = function () {
     h1.innerHTML = this.number
     button.innerText = '+'
 
-    const self = this
-
     button.addEventListener(
         'click',
-        function () {
-            self.inc()
-        }
+          () => this.inc()
     )
 
     this.container.appendChild(h1)
