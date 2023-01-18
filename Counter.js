@@ -42,3 +42,11 @@ Counter.prototype.status = function () {
     console.log('Current number is: ' + this.number)
     return this.number
 }
+
+Counter.prototype.toString = function () {
+    return 'Current number is ' + this.number
+}
+
+Counter.prototype.valueOf = function () {
+    return this.number
+}
