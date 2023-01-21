@@ -13,15 +13,8 @@ DecreasingCounter.prototype.dec = function () {
 DecreasingCounter.prototype.render = function () {
     Counter.prototype.render.call(this)
 
-    const button = document.createElement('button')
+    const button = new Button('-', () => this.dec())
 
-    button.innerText = '-'
-
-    button.addEventListener(
-        'click',
-          () => this.dec()
-    )
-
-    this.container.appendChild(button)
+    this.container.appendChild(button.render())
 }
 
