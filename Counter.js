@@ -18,12 +18,10 @@ Counter.prototype.render = function () {
 
     this.container.innerText = ''
 
-    const h1 = document.createElement('h1')
+    const h1 = new Header(this.number)
     const button = new Button('+', () => this.inc())
 
-    h1.innerHTML = this.number
-
-    this.container.appendChild(h1)
+    this.container.appendChild(h1.render())
     this.container.appendChild(button.render())
 }
 
