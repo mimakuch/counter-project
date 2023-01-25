@@ -1,20 +1,20 @@
-const DecreasingCounter = function (selector) {
-    Counter.call(this, selector)
+const DecreasingCounter = class extends Counter {
+
+    constructor(selector) {
+        super(selector)
+    }
+
+    dec() {
+        this.number = this.number - 1
+        this.render()
+    }
+
+    render() {
+        super.render()
+
+        const button = new Button('-', () => this.dec())
+
+        this.container.appendChild(button.render())
+    }
+
 }
-
-DecreasingCounter.prototype = Object.create(Counter.prototype)
-DecreasingCounter.prototype.constructor = DecreasingCounter
-
-DecreasingCounter.prototype.dec = function () {
-    this.number = this.number - 1
-    this.render()
-}
-
-DecreasingCounter.prototype.render = function () {
-    Counter.prototype.render.call(this)
-
-    const button = new Button('-', () => this.dec())
-
-    this.container.appendChild(button.render())
-}
-
